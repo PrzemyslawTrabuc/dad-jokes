@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import ToggleDarkMode from "./toggleDarkMode";
 
 function Header() {
   return (
-    <div>
-      <h1 className="text-black dark:text-white text-center">
-        Welocme to <span className="text-amber-300">Dad Jokes</span>
-      </h1>
+    <div className="flex flex-nowrap justify-around a">
+      <div className="flex flex-nowrap justify-between grow-[0.05]">
+        <Link to="/">Random Joke</Link>
+        <Link to="/strike">Strike of Jokes</Link>
+      </div>
+      <div>
+        <ToggleDarkMode></ToggleDarkMode>
+      </div>
     </div>
   );
 }
