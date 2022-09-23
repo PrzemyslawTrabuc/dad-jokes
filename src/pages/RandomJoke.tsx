@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Title from "../components/Title";
 
+const DadJokeButtonTexts = ["OMG Dad...", "Dad pls...", "WTF Dad!", "OK."];
+
 function RandomJoke() {
-  const [dadJokesCount, setDadJokesCount] = useState<number | null>(null);
+  const [dadJoke, setDadJoke] = useState<number | null>(null);
+  const jokeRef = useRef<HTMLSpanElement | null>(null);
+
   const getRandomJokes = async () => {
-    const response = await fetch(
-      "https://dad-jokes.p.rapidapi.com/joke/count",
-      {
-        headers: {
-          "X-RapidAPI-Key":
-            "6bc20974eamshab178251bbf4d6dp1ccf5ejsn15ea6633a3e8",
-          "X-RapidAPI-Host": "dad-jokes.p.rapidapi.com",
-        },
-        method: "GET",
-      }
-    );
+    jokeRef.current?.classList.add("animate-spin");
+    setTimeout(() => jokeRef.current?.classList.remove("animate-spin"), 1000);
+    const response = await fetch("https://icanhazdadjoke.com/", {
+      headers: { Accept: "application/json" },
+    });
     const data = await response.json();
-    setDadJokesCount(data.body);
+    setDadJoke(data.joke);
+  };
+
+  const getRandomButtonText = (items: Array<string>) => {
+    return items[Math.floor(Math.random() * items.length)];
   };
 
   useEffect(() => {
@@ -26,7 +28,17 @@ function RandomJoke() {
   return (
     <>
       <Title title="Dad Joke" />
-      <div>Dad Jokes count {dadJokesCount}</div>
+      <div className="text-center h-auto flex items-center flex-col justify-evenly text-xl mt-5">
+        <span ref={jokeRef} className="mx-10">
+          " {dadJoke} "
+        </span>
+        <button
+          onClick={getRandomJokes}
+          className="dark:bg-fuchsia-800 min-w-[150px] p-3 rounded dark:hover:bg-fuchsia-700 mt-10 animate-bounce bg-fuchsia-300 hover:bg-fuchsia-200"
+        >
+          {getRandomButtonText(DadJokeButtonTexts)}
+        </button>
+      </div>
     </>
   );
 }
