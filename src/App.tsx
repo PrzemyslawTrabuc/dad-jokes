@@ -12,7 +12,7 @@ function App() {
   console.log(theme);
   return (
     <div className={theme}>
-      <div className="h-screen content-center flex flex-col text-black dark:text-white dark:bg-black">
+      <div className="h-screen content-center flex flex-col text-zinc-700 dark:text-zinc-200 dark:bg-zinc-800">
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <BrowserRouter>
             <Header></Header>

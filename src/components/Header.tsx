@@ -5,7 +5,7 @@ import ToggleDarkMode from "./toggleDarkMode";
 
 function Header() {
   return (
-    <div className="flex flex-nowrap justify-around a">
+    <div className="flex flex-nowrap justify-around h-[60px] items-center">
       <div className="flex flex-nowrap justify-between grow-[0.05]">
         <Link to="/">Random Joke</Link>
         <Link to="/strike">Strike of Jokes</Link>

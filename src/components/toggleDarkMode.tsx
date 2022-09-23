@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../context/context";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 function ToggleDarMode() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -10,7 +11,15 @@ function ToggleDarMode() {
       setTheme("dark");
     }
   };
-  return <button onClick={() => ToggleDarkMode(theme)}>DarkModeSwitch</button>;
+  return (
+    <button onClick={() => ToggleDarkMode(theme)}>
+      {theme === "dark" ? (
+        <SunIcon className={"h-7 w-7"} />
+      ) : (
+        <MoonIcon className={"h-6 w-6"} />
+      )}
+    </button>
+  );
 }
 
 export default ToggleDarMode;
