@@ -1,7 +1,7 @@
 import Title from "../components/Title";
 
-function RandomJoke() {
-  return <Title title="Dad Jokes Strike" />;
+function StrikeOfJokes() {
+  return <Title title="Dad Attack" />;
 }
 
-export default RandomJoke;
+export default StrikeOfJokes;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./context/context";
@@ -9,9 +8,15 @@ import StrikeOfJokes from "./pages/StrikeOfJokes";
 
 function App() {
   const [theme, setTheme] = useState<string>("dark");
+  if (theme === "dark") {
+    document.body.style.backgroundColor = "rgb(39 39 42)";
+  }
+  if (theme === "") {
+    document.body.style.backgroundColor = "white";
+  }
   return (
     <div className={theme}>
-      <div className="h-screen content-center flex flex-col text-zinc-700 dark:text-zinc-200 dark:bg-zinc-800">
+      <div className="content-center flex flex-col text-zinc-700 dark:text-zinc-200 dark:bg-zinc-800 h-screen">
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <BrowserRouter>
             <Header></Header>

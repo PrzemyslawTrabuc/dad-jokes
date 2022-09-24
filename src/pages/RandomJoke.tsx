@@ -9,7 +9,11 @@ function RandomJoke() {
 
   const getRandomJokes = async () => {
     jokeRef.current?.classList.add("animate-spin");
-    setTimeout(() => jokeRef.current?.classList.remove("animate-spin"), 1000);
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      jokeRef.current?.classList.remove("animate-spin");
+      document.body.style.overflow = "auto";
+    }, 1000);
     const response = await fetch("https://icanhazdadjoke.com/", {
       headers: { Accept: "application/json" },
     });
@@ -30,7 +34,7 @@ function RandomJoke() {
       <Title title="Dad Joke" />
       <div className="text-center h-auto flex items-center flex-col justify-evenly text-xl mt-5">
         <span ref={jokeRef} className="mx-10">
-          " {dadJoke} "
+          "{dadJoke}"
         </span>
         <button
           onClick={getRandomJokes}
