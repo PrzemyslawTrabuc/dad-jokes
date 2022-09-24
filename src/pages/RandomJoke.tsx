@@ -10,15 +10,15 @@ function RandomJoke() {
   const getRandomJokes = async () => {
     jokeRef.current?.classList.add("animate-spin");
     document.body.style.overflow = "hidden";
-    setTimeout(() => {
-      jokeRef.current?.classList.remove("animate-spin");
-      document.body.style.overflow = "auto";
-    }, 1000);
     const response = await fetch("https://icanhazdadjoke.com/", {
       headers: { Accept: "application/json" },
     });
     const data = await response.json();
     setDadJoke(data.joke);
+    setTimeout(() => {
+      jokeRef.current?.classList.remove("animate-spin");
+      document.body.style.overflow = "auto";
+    }, 850);
   };
 
   const getRandomButtonText = (items: Array<string>) => {
