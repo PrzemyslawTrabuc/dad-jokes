@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./context/context";
 import Header from "./components/Header";
@@ -18,13 +18,13 @@ function App() {
     <div className={theme}>
       <div className="content-center flex flex-col text-zinc-700 dark:text-zinc-200 dark:bg-zinc-800 h-screen">
         <ThemeContext.Provider value={{ theme, setTheme }}>
-          <BrowserRouter>
+          <HashRouter>
             <Header></Header>
             <Routes>
               <Route path="/" element={<RandomJoke />} />
               <Route path="strike" element={<StrikeOfJokes />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </ThemeContext.Provider>
       </div>
     </div>
