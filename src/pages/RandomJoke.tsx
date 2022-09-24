@@ -32,13 +32,16 @@ function RandomJoke() {
   return (
     <>
       <Title title="Dad Joke" />
-      <div className="text-center h-auto flex items-center flex-col justify-evenly text-xl mt-5">
-        <span ref={jokeRef} className="mx-10">
-          "{dadJoke}"
+      <div className="text-center h-auto flex items-center flex-col justify-evenly text-xl mt-2">
+        <span ref={jokeRef} className="mx-10 min-h-[200px] flex items-center">
+          "Me: If humans lose the ability to hear high frequency volumes as they
+          get older, can my 4 week old son hear a dog whistle? Doctor: No,
+          humans can never hear that high of a frequency no matter what age they
+          are. Me: Trick question... dogs can't whistle."
         </span>
         <button
           onClick={getRandomJokes}
-          className="dark:bg-fuchsia-800 min-w-[150px] p-3 rounded dark:hover:bg-fuchsia-700 mt-10 animate-bounce bg-fuchsia-300 hover:bg-fuchsia-200"
+          className="dark:bg-fuchsia-800 min-w-[150px] p-3 rounded dark:hover:bg-fuchsia-700 animate-bounce bg-fuchsia-300 hover:bg-fuchsia-200"
         >
           {getRandomButtonText(DadJokeButtonTexts)}
         </button>
