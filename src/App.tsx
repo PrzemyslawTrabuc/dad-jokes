@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { ThemeContext } from "./context/context";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import RandomJoke from "./pages/RandomJoke";
 import StrikeOfJokes from "./pages/StrikeOfJokes";
 
@@ -21,7 +21,8 @@ function App() {
           <HashRouter>
             <Header></Header>
             <Routes>
-              <Route path="/" element={<RandomJoke />} />
+              <Route path="" element={<Navigate to="random" />} />
+              <Route path="random" element={<RandomJoke />} />
               <Route path="strike" element={<StrikeOfJokes />} />
             </Routes>
           </HashRouter>

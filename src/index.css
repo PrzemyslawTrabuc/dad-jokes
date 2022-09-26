@@ -7,7 +7,7 @@
   font-family: "Montserrat";
 }
 .h-screen::before {
-  background-image: url("./public/moustache.png");
+  background-image: url("./assets/moustache.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center 5%;
@@ -20,7 +20,7 @@
 }
 
 .titleFirstWord::before {
-  background-image: url("./public/hat.png");
+  background-image: url("./assets/hat.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left top;
