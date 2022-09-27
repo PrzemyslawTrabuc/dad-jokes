@@ -6,6 +6,22 @@
   min-height: 100vh;
   font-family: "Montserrat";
 }
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c8c8c8;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 .h-screen::before {
   background-image: url("./assets/moustache.png");
   background-size: contain;

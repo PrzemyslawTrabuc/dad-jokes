@@ -1,10 +1,55 @@
+import { useEffect, useState, useRef, LegacyRef, RefObject } from "react";
 import Message from "./Message";
+import { IMessageProps } from "./Message";
+import { fetchRandomJoke } from "../../utils/fetchRandomJoke";
+import ChatInputField from "./ChatInputField";
+
 function DadChat() {
+  const [messages, setMessages] = useState<IMessageProps[]>([]);
+  const chatBoxRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const joke = await fetchRandomJoke();
+      setMessages([{ Author: "Dad", MessageContent: joke }]);
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (chatBoxRef.current) chatBoxRef.current.scroll(0, 9999);
+  }, [messages]);
+
+  const onChatMessageSubmit = async (message: string) => {
+    if (message)
+      setMessages((current) => [
+        ...current,
+        { Author: "Me", MessageContent: message },
+      ]);
+    const joke = await fetchRandomJoke();
+    setMessages((current) => [
+      ...current,
+      { Author: "Dad", MessageContent: joke },
+    ]);
+  };
+
+  const renderMessagesLsit = (messages: Array<IMessageProps> | null) => {
+    if (messages) {
+      const listOfMessages = messages.map(({ Author, MessageContent }) => {
+        return <Message Author={Author} MessageContent={MessageContent} />;
+      });
+      return listOfMessages;
+    }
+  };
+
   return (
-    <div className="container mx-auto px-4 flex-col flex ">
-      <Message MessageContent="Dad Joke HERE" Author="Dad"></Message>
-      <Message MessageContent="OMG DAD!?" Author="Me"></Message>
-      <Message MessageContent="Dad Joke HERE" Author="Dad"></Message>
+    <div className="container mx-auto px-4 flex-col flex z-10 sm:w-3/5 h-1/2">
+      <h2 className="items-center text-center text-2xl mb-3">
+        Messaging with Dad
+      </h2>
+      <div className="overflow-y-auto h-full flex flex-col" ref={chatBoxRef}>
+        {renderMessagesLsit(messages)}
+      </div>
+      <ChatInputField onSubmit={onChatMessageSubmit}></ChatInputField>
     </div>
   );
 }
