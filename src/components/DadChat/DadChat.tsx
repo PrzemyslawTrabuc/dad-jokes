@@ -40,7 +40,7 @@ function DadChat() {
       return listOfMessages;
     }
   };
-
+  //TODO: optimize chat size for mobiles
   return (
     <div className="container mx-auto px-4 flex-col flex z-10 sm:w-3/5 h-1/2">
       <h2 className="items-center text-center text-2xl mb-3">
