@@ -16,7 +16,7 @@ function App() {
   }
   return (
     <div className={theme}>
-      <div className="content-center flex flex-col text-zinc-700 dark:text-zinc-200 dark:bg-zinc-800 h-screen">
+      <div className="content-center flex flex-col text-zinc-800 dark:text-zinc-200 dark:bg-zinc-800 h-screen">
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <HashRouter>
             <Header></Header>

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, LegacyRef, RefObject } from "react";
+import { useEffect, useState, useRef } from "react";
 import Message from "./Message";
 import { IMessageProps } from "./Message";
 import { fetchRandomJoke } from "../../utils/fetchRandomJoke";
@@ -34,8 +34,13 @@ function DadChat() {
 
   const renderMessagesLsit = (messages: Array<IMessageProps> | null) => {
     if (messages) {
+      let counter = messages.length;
       const listOfMessages = messages.map(({ Author, MessageContent }) => {
-        return <Message Author={Author} MessageContent={MessageContent} />;
+        const ID = messages.length - counter;
+        counter--;
+        return (
+          <Message Author={Author} MessageContent={MessageContent} key={ID} />
+        );
       });
       return listOfMessages;
     }
@@ -46,7 +51,10 @@ function DadChat() {
       <h2 className="items-center text-center text-2xl mb-3">
         Messaging with Dad
       </h2>
-      <div className="overflow-y-auto h-full flex flex-col" ref={chatBoxRef}>
+      <div
+        className="overflow-y-auto h-full flex flex-col overflow-x-hidden"
+        ref={chatBoxRef}
+      >
         {renderMessagesLsit(messages)}
       </div>
       <ChatInputField onSubmit={onChatMessageSubmit}></ChatInputField>
