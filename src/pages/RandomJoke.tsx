@@ -48,6 +48,7 @@ function RandomJoke() {
           handleClick={getRandomJoke}
           buttonText={getRandomButtonText(DadJokeButtonTexts)}
           isFloating={true}
+          classes={"min-w-[150px]"}
         ></MyButton>
       </div>
     </>

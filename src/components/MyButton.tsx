@@ -1,13 +1,21 @@
+import { ReactNode } from "react";
+
 interface ImyButtonProps {
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
-  buttonText: string;
+  buttonText: string | ReactNode;
   isFloating: boolean;
+  classes?: string;
 }
-function MyButton({ handleClick, buttonText, isFloating }: ImyButtonProps) {
+function MyButton({
+  handleClick,
+  buttonText,
+  isFloating,
+  classes,
+}: ImyButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className={`dark:bg-fuchsia-800 w-auto] p-3 rounded-2xl dark:hover:bg-fuchsia-700 bg-fuchsia-300 hover:bg-fuchsia-200 min-w-[150px] ${
+      className={`dark:bg-fuchsia-800 w-auto] p-3 rounded-2xl dark:hover:bg-fuchsia-700 bg-fuchsia-300 hover:bg-fuchsia-200 h-auto text-center ${classes} ${
         isFloating ? "animate-bounce" : ""
       }`}
     >
