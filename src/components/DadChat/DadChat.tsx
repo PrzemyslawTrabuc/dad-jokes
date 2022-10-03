@@ -30,7 +30,6 @@ function DadChat() {
       ...current,
       { Author: "Dad", MessageContent: joke },
     ]);
-    console.log(message);
   };
 
   const renderMessagesLsit = (messages: Array<IMessageProps> | null) => {
