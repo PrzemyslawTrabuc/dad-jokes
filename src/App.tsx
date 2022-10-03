@@ -34,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+//TODO: Add footer
