@@ -38,12 +38,6 @@ function RandomJoke() {
         >
           {dadJoke}
         </span>
-        {/* <button
-          onClick={getRandomJoke}
-          className="dark:bg-fuchsia-800 min-w-[150px] p-3 mt-5 rounded dark:hover:bg-fuchsia-700 animate-bounce bg-fuchsia-300 hover:bg-fuchsia-200"
-        >
-          {getRandomButtonText(DadJokeButtonTexts)}
-        </button> */}
         <MyButton
           handleClick={getRandomJoke}
           buttonText={getRandomButtonText(DadJokeButtonTexts)}

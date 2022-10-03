@@ -20,7 +20,7 @@ function DadChat() {
   }, [messages]);
 
   const onChatMessageSubmit = async (message: string) => {
-    if (message)
+    if (message && message.replace(/\s/g, "").length)
       setMessages((current) => [
         ...current,
         { Author: "Me", MessageContent: message },
@@ -30,6 +30,7 @@ function DadChat() {
       ...current,
       { Author: "Dad", MessageContent: joke },
     ]);
+    console.log(message);
   };
 
   const renderMessagesLsit = (messages: Array<IMessageProps> | null) => {
@@ -48,7 +49,7 @@ function DadChat() {
 
   //TODO: optimize chat size for mobiles
   return (
-    <div className="container mx-auto px-4 flex-col flex z-10 sm:w-3/5 h-1/2 p-5 bg-[rgba(1,1,1,.04)] shadow-sm rounded-lg border-[1px] border-amber-400">
+    <div className="container mx-auto px-4 flex-col flex z-10 sm:w-3/5 h-1/2 p-5 dark:bg-[rgba(0,0,0,.2)] bg-[rgba(255,255,255,.6)]  rounded-3xl border-[1px] border-amber-400 shadow-inner">
       <h2 className="items-center text-center text-2xl mb-3">
         Messaging with Dad
       </h2>

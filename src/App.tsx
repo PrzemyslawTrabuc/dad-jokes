@@ -24,7 +24,7 @@ function App() {
             <Routes>
               <Route path="" element={<Navigate to="random" />} />
               <Route path="random" element={<RandomJoke />} />
-              <Route path="strike" element={<StrikeOfJokes />} />
+              <Route path="chat" element={<StrikeOfJokes />} />
             </Routes>
           </HashRouter>
         </ThemeContext.Provider>
