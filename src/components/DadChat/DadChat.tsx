@@ -20,10 +20,10 @@ function DadChat() {
   }, [messages]);
 
   const onChatMessageSubmit = async (message: string) => {
-    if (message && message.replace(/\s/g, "").length)
+    if (message && message.trim().length !== 0)
       setMessages((current) => [
         ...current,
-        { Author: "Me", MessageContent: message },
+        { Author: "Me", MessageContent: message.trimStart().trimEnd() },
       ]);
     const joke = await fetchRandomJoke();
     setMessages((current) => [
