@@ -26,6 +26,7 @@ function ChatInputField({ onSubmit }: any) {
         onChange={onInputChange}
         value={message}
         placeholder="Type a message..."
+        autoComplete="off"
       ></input>
       <MyButton
         buttonText={
