@@ -15,7 +15,7 @@ function MyButton({
   return (
     <button
       onClick={handleClick}
-      className={`dark:bg-fuchsia-800 w-auto] p-3 rounded-2xl dark:hover:bg-fuchsia-700 bg-fuchsia-300 hover:bg-fuchsia-200 h-auto text-center ${classes} ${
+      className={`dark:bg-fuchsia-800 w-auto] p-3 rounded-2xl dark:hover:bg-fuchsia-700 dark:text-zinc-200 text-zinc-700 bg-fuchsia-200 hover:bg-fuchsia-100 h-auto text-center ${classes} ${
         isFloating ? "animate-bounce" : ""
       }`}
     >
