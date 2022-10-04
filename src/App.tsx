@@ -5,6 +5,7 @@ import { ThemeContext } from "./context/context";
 import Header from "./components/Header/Header";
 import RandomJoke from "./pages/RandomJoke";
 import StrikeOfJokes from "./pages/StrikeOfJokes";
+import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useState<string>("dark");
@@ -21,11 +22,14 @@ function App() {
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <HashRouter>
             <Header></Header>
-            <Routes>
-              <Route path="" element={<Navigate to="random" />} />
-              <Route path="random" element={<RandomJoke />} />
-              <Route path="chat" element={<StrikeOfJokes />} />
-            </Routes>
+            <div className="h-full">
+              <Routes>
+                <Route path="" element={<Navigate to="random" />} />
+                <Route path="random" element={<RandomJoke />} />
+                <Route path="chat" element={<StrikeOfJokes />} />
+              </Routes>
+            </div>
+            <Footer></Footer>
           </HashRouter>
         </ThemeContext.Provider>
       </div>
