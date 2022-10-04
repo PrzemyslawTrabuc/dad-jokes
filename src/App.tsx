@@ -22,13 +22,11 @@ function App() {
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <HashRouter>
             <Header></Header>
-            <div className="h-full">
-              <Routes>
-                <Route path="" element={<Navigate to="random" />} />
-                <Route path="random" element={<RandomJoke />} />
-                <Route path="chat" element={<StrikeOfJokes />} />
-              </Routes>
-            </div>
+            <Routes>
+              <Route path="" element={<Navigate to="random" />} />
+              <Route path="random" element={<RandomJoke />} />
+              <Route path="chat" element={<StrikeOfJokes />} />
+            </Routes>
             <Footer></Footer>
           </HashRouter>
         </ThemeContext.Provider>

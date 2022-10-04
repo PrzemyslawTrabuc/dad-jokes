@@ -2,7 +2,7 @@ import { LinkIcon } from "@heroicons/react/24/solid";
 
 function Footer() {
   return (
-    <footer className="p-2 min-w-full text-center border-t-[1.5px] dark:border-amber-300 border-amber-400 shadow-inner bg-zinc-100 dark:bg-zinc-900">
+    <footer className="p-2 min-w-full text-center border-t-[1.5px] dark:border-amber-300 border-amber-400 shadow-inner bg-zinc-100 dark:bg-zinc-900 mt-20">
       <span className="text-center">
         <a
           href="https://github.com/PrzemyslawTrabuc"
