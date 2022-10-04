@@ -53,7 +53,7 @@ function DadChat() {
       </h2>
       <div
         ref={chatBoxRef}
-        className="overflow-y-auto h-[100%] flex flex-col overflow-x-hidden"
+        className="overflow-y-auto h-full flex flex-col overflow-x-hidden"
       >
         {renderMessagesLsit(messages)}
       </div>

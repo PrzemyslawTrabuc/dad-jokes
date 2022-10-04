@@ -31,7 +31,7 @@ function RandomJoke() {
   return (
     <>
       <Title title="Dad Joke" />
-      <div className="text-center h-auto flex items-center flex-col justify-evenly text-xl mt-2">
+      <div className="text-center flex items-center flex-col justify-evenly text-xl mt-2 mb-auto">
         <span
           ref={jokeRef}
           className="mx-10 min-h-[200px] flex items-center mb-5"
