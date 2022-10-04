@@ -17,10 +17,10 @@ function ChatInputField({ onSubmit }: any) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border-solid w-full border-spacing-4 max-h-[50px] dark:border-fuchsia-800 border-fuchsia-400 mt-5 rounded-2xl flex flex-row justify-between border-[1px] p-0.5 bg-slate-100 dark:bg-zinc-900"
+      className="border-solid w-full border-spacing-4 max-h-[50px] dark:border-fuchsia-800 shadow-inner border-fuchsia-400 mt-5 rounded-2xl flex flex-row bg-zinc-50 justify-between border-[1px] p-0.5 dark:bg-zinc-900"
     >
       <input
-        className="dark:bg-zinc-900 bg-slate-100 h-full w-full rounded-2xl focus:outline-none p-3 grow"
+        className="dark:bg-zinc-900 bg-zinc-50 w-full rounded-2xl focus:outline-none p-3 grow"
         type="text"
         name="message"
         onChange={onInputChange}

@@ -19,12 +19,13 @@ function Header() {
     <div className="flex flex-nowrap justify-between min-h-[80px] items-center sm:mx-20 mx-6 text-lg">
       <div className="flex flex-nowrap justify-between grow-[0.05]">
         <NavLink
-          to="random"
+          to="/"
           className={({ isActive }) =>
             isActive
               ? "dark:text-amber-300 text-amber-500 underline underline-offset-4"
               : ""
           }
+          end
         >
           Random
         </NavLink>
