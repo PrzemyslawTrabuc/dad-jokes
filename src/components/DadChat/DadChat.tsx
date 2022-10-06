@@ -9,14 +9,21 @@ function DadChat() {
   const chatBoxRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    (async () => {
-      const joke = await fetchRandomJoke();
-      setMessages([{ Author: "Dad", MessageContent: joke }]);
-    })();
+    let messagesStorage = localStorage.getItem("Messages");
+    if (!messagesStorage)
+      (async () => {
+        const joke = await fetchRandomJoke();
+        setMessages([{ Author: "Dad", MessageContent: joke }]);
+      })();
+    if (messagesStorage) {
+      setMessages(JSON.parse(messagesStorage));
+    }
   }, []);
 
   useEffect(() => {
     if (chatBoxRef.current) chatBoxRef.current.scroll(0, 9999);
+    if (messages.length > 0)
+      localStorage.setItem("Messages", JSON.stringify(messages));
   }, [messages]);
 
   const onChatMessageSubmit = async (message: string) => {
