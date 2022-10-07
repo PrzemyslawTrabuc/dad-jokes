@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../context/context";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
