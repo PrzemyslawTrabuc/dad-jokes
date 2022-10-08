@@ -54,7 +54,7 @@ function DadChat() {
   };
 
   return (
-    <div className="container mx-auto px-4 flex-col flex z-10 h-3/4 sm:w-4/5 w-[90%] p-5 dark:bg-[rgba(0,0,0,.2)] bg-[rgba(255,255,255,.6)] rounded-3xl border-[1px] border-amber-400 shadow-inner min-h-[270px] mt-10">
+    <>
       <h2 className="items-center text-center text-2xl mb-3">
         Messaging with Dad
       </h2>
@@ -65,7 +65,7 @@ function DadChat() {
         {renderMessagesLsit(messages)}
       </div>
       <ChatInputField onSubmit={onChatMessageSubmit}></ChatInputField>
-    </div>
+    </>
   );
 }
 

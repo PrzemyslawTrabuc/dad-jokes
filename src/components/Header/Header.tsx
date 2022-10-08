@@ -16,7 +16,7 @@ function Header() {
   }, [location]);
 
   return (
-    <div className="flex flex-nowrap justify-between min-h-[80px] items-center sm:mx-20 mx-6 text-lg">
+    <header className="flex flex-nowrap justify-between min-h-[80px] items-center sm:mx-20 mx-6 text-lg">
       <div className="flex flex-nowrap justify-between grow-[0.05]">
         <NavLink
           to="/"
@@ -52,7 +52,7 @@ function Header() {
       <div>
         <ToggleDarkMode></ToggleDarkMode>
       </div>
-    </div>
+    </header>
   );
 }
 
