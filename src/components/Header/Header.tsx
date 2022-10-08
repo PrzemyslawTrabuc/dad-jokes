@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <header className="flex flex-nowrap justify-between min-h-[80px] items-center sm:mx-20 mx-6 text-lg">
-      <div className="flex flex-nowrap justify-between grow-[0.05]">
+      <nav className="flex flex-nowrap justify-between grow-[0.05]">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -48,7 +48,7 @@ function Header() {
             ) : null}
           </span>
         </NavLink>
-      </div>
+      </nav>
       <div>
         <ToggleDarkMode></ToggleDarkMode>
       </div>
