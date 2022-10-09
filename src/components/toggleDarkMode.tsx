@@ -7,8 +7,10 @@ function ToggleDarMode() {
   const ToggleDarkMode = (currentTheme: string) => {
     if (currentTheme === "dark") {
       setTheme("");
+      localStorage.setItem("Theme", "");
     } else {
       setTheme("dark");
+      localStorage.setItem("Theme", "dark");
     }
   };
   return (

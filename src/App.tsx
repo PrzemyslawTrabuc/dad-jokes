@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./context/context";
@@ -9,12 +9,15 @@ import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useState<string>("dark");
-  if (theme === "dark") {
-    document.body.style.backgroundColor = "rgb(39 39 42)";
-  }
-  if (theme === "") {
-    document.body.style.backgroundColor = "white";
-  }
+
+  useEffect(() => {
+    if (
+      localStorage.getItem("Theme") === "dark" &&
+      !localStorage.getItem("Theme")
+    )
+      setTheme("dark");
+    if (localStorage.getItem("Theme") === "") setTheme("");
+  }, []);
 
   return (
     <div className={theme}>
@@ -22,7 +25,6 @@ function App() {
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <HashRouter>
             <Header></Header>
-
             <Routes>
               <Route path="/" element={<RandomJoke />} />
               {/* <Route path="random" element={<RandomJoke />} /> */}
