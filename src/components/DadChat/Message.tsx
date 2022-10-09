@@ -12,7 +12,7 @@ function Message({ Author, MessageContent }: IMessageProps) {
           : "self-end border-fuchsia-400 dark:border-fuchsia-800 slideRightText"
       }`}
     >
-      <p>{MessageContent}</p>
+      <p className="shadow-none">{MessageContent}</p>
     </div>
   );
 }
