@@ -6,17 +6,18 @@ import Header from "./components/Header/Header";
 import RandomJoke from "./pages/RandomJoke";
 import StrikeOfJokes from "./pages/StrikeOfJokes";
 import Footer from "./components/Footer";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [theme, setTheme] = useState<string>("dark");
+  const [localStoredTheme, setLocalStoredTheme] = useLocalStorage<string>(
+    "Theme",
+    JSON.stringify("dark")
+  );
 
   useEffect(() => {
-    if (
-      localStorage.getItem("Theme") === "dark" &&
-      !localStorage.getItem("Theme")
-    )
-      setTheme("dark");
-    if (localStorage.getItem("Theme") === "") setTheme("");
+    if (localStoredTheme === "dark" && !localStoredTheme) setTheme("dark");
+    if (localStoredTheme === "") setTheme("");
   }, []);
 
   return (
@@ -27,10 +28,8 @@ function App() {
             <Header></Header>
             <Routes>
               <Route path="/" element={<RandomJoke />} />
-              {/* <Route path="random" element={<RandomJoke />} /> */}
               <Route path="chat" element={<StrikeOfJokes />} />
             </Routes>
-
             <Footer></Footer>
           </HashRouter>
         </ThemeContext.Provider>

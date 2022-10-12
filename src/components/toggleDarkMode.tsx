@@ -1,17 +1,24 @@
 import { useContext } from "react";
 import { ThemeContext } from "../context/context";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function ToggleDarMode() {
   const { theme, setTheme } = useContext(ThemeContext);
+  const [localStoredTheme, setLocalStoredTheme] = useLocalStorage<string>(
+    "Theme",
+    JSON.stringify("dark")
+  );
+
   const ToggleDarkMode = (currentTheme: string) => {
     if (currentTheme === "dark") {
       setTheme("");
-      localStorage.setItem("Theme", "");
+      setLocalStoredTheme("");
     } else {
       setTheme("dark");
-      localStorage.setItem("Theme", "dark");
+      setLocalStoredTheme("dark");
     }
+    console.log(localStoredTheme);
   };
   return (
     <button onClick={() => ToggleDarkMode(theme)}>

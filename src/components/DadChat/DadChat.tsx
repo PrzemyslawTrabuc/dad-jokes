@@ -3,37 +3,39 @@ import Message from "./Message";
 import { IMessageProps } from "./Message";
 import { fetchRandomJoke } from "../../utils/fetchRandomJoke";
 import ChatInputField from "./ChatInputField";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 function DadChat() {
-  const [messages, setMessages] = useState<IMessageProps[]>([]);
   const chatBoxRef = useRef<HTMLDivElement | null>(null);
+  const [messages, setMessages] = useLocalStorage<IMessageProps[]>(
+    "Messages",
+    []
+  );
 
   useEffect(() => {
-    let messagesStorage = localStorage.getItem("Messages");
-    if (!messagesStorage)
+    if (messages.length < 1)
       (async () => {
         const joke = await fetchRandomJoke();
         setMessages([{ Author: "Dad", MessageContent: joke }]);
       })();
-    if (messagesStorage) {
-      setMessages(JSON.parse(messagesStorage));
+    if (messages) {
+      setMessages(messages);
     }
   }, []);
 
   useEffect(() => {
     if (chatBoxRef.current) chatBoxRef.current.scroll(0, 9999);
-    if (messages.length > 0)
-      localStorage.setItem("Messages", JSON.stringify(messages));
+    if (messages.length > 0) setMessages(messages);
   }, [messages]);
 
   const onChatMessageSubmit = async (message: string) => {
     if (message && message.trim().length !== 0)
-      setMessages((current) => [
+      setMessages((current: IMessageProps[]) => [
         ...current,
         { Author: "Me", MessageContent: message.trimStart().trimEnd() },
       ]);
     const joke = await fetchRandomJoke();
-    setMessages((current) => [
+    setMessages((current: IMessageProps[]) => [
       ...current,
       { Author: "Dad", MessageContent: joke },
     ]);
