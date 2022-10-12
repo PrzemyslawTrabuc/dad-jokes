@@ -24,11 +24,10 @@ https://przemyslawtrabuc.github.io/dad-jokes/
 
 ## Screenshots
 
-![App Screenshot](S1)
-![App Screenshot](S2)
-![App Screenshot](S3)
-![App Screenshot](S4)
-![App Screenshot](S5)
-![App Screenshot](S6)
-![App Screenshot](S7)
+![App Screenshot](S1.png)
+![App Screenshot](S2.png)
+![App Screenshot](S3.png)
+![App Screenshot](S4.png)
+![App Screenshot](S5.png)
+![App Screenshot](S6.png)
 
