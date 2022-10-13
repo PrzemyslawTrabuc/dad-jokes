@@ -9,9 +9,9 @@ https://przemyslawtrabuc.github.io/dad-jokes/
 ## Features
 
 - Light/dark mode toggle
-- saving city for users
-- sign in with google
-- managing the order of cities
+- fake chat with dad
+- fakse notifications
+- random joke
 - saving settings and chat in local storage
 
 
