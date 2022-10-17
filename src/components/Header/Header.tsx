@@ -9,10 +9,13 @@ function Header() {
 
   useEffect(() => {
     const randomTime = Math.floor(Math.random() * 8000 + 1000);
-    setTimeout(() => {
+    const notificationTimer = setTimeout(() => {
       setIsBadgeVisible(true);
     }, randomTime);
-    return setIsBadgeVisible(false);
+    return () => {
+      setIsBadgeVisible(false);
+      clearTimeout(notificationTimer);
+    };
   }, [location]);
 
   return (

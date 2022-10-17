@@ -11,12 +11,12 @@ function ToggleDarMode() {
   );
 
   const ToggleDarkMode = (currentTheme: string) => {
-    if (currentTheme === "dark") {
-      setTheme("");
-      setLocalStoredTheme("");
-    } else {
+    if (currentTheme !== "dark") {
       setTheme("dark");
       setLocalStoredTheme("dark");
+    } else {
+      setTheme("");
+      setLocalStoredTheme("");
     }
     console.log(localStoredTheme);
   };
