@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: rgb(39, 39, 42);
+}
+
 #root {
   min-height: 100vh;
   font-family: "Montserrat";

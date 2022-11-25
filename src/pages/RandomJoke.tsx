@@ -10,6 +10,7 @@ function RandomJoke() {
   const jokeRef = useRef<HTMLSpanElement | null>(null);
 
   const getRandomJoke = async () => {
+    fetch("https://gorest.co.in/public/v1/users?page=1");
     jokeRef.current?.classList.add("animate-spin");
     document.body.style.overflow = "hidden";
     const joke = await fetchRandomJoke();
