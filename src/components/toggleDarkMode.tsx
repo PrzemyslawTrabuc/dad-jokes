@@ -14,11 +14,12 @@ function ToggleDarMode() {
     if (currentTheme !== "dark") {
       setTheme("dark");
       setLocalStoredTheme("dark");
+      document.body.style.removeProperty("background-color");
     } else {
       setTheme("");
       setLocalStoredTheme("");
+      document.body.style.backgroundColor = "white";
     }
-    console.log(localStoredTheme);
   };
   return (
     <button onClick={() => ToggleDarkMode(theme)}>

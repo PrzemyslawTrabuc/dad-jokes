@@ -16,8 +16,14 @@ function App() {
   );
 
   useEffect(() => {
-    if (localStoredTheme === "dark" && !localStoredTheme) setTheme("dark");
-    if (localStoredTheme === "") setTheme("");
+    if (localStoredTheme === "dark" || !localStoredTheme) {
+      setTheme("dark");
+      document.body.style.removeProperty("background-color");
+    }
+    if (localStoredTheme === "") {
+      setTheme("");
+      document.body.style.backgroundColor = "white";
+    }
   }, []);
 
   return (
