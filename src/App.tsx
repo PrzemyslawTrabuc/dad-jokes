@@ -18,11 +18,11 @@ function App() {
   useEffect(() => {
     if (localStoredTheme === "dark" || !localStoredTheme) {
       setTheme("dark");
-      document.body.style.removeProperty("background-color");
+      document.body.style.backgroundColor = "rgb(39, 39, 42)";
     }
     if (localStoredTheme === "") {
       setTheme("");
-      document.body.style.backgroundColor = "white";
+      document.body.style.removeProperty("background-color");
     }
   }, []);
 

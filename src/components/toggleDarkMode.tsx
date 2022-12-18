@@ -14,11 +14,11 @@ function ToggleDarMode() {
     if (currentTheme !== "dark") {
       setTheme("dark");
       setLocalStoredTheme("dark");
-      document.body.style.removeProperty("background-color");
+      document.body.style.backgroundColor = "rgb(39, 39, 42)";
     } else {
       setTheme("");
       setLocalStoredTheme("");
-      document.body.style.backgroundColor = "white";
+      document.body.style.removeProperty("background-color");
     }
   };
   return (
